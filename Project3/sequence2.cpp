@@ -25,12 +25,13 @@ namespace main_savitch_4{
       }
     if(new_capacity < used){
       new_capacity = used;
-      }
+      }else{
     larger_array = new value_type[new_capacity];
     copy(data,data+used,larger_array);
     delete[] data;
     data = larger_array;
       capacity = new_capacity;
+      }
     }
     void sequence::operator=(const sequence& source){
       value_type *new_data;
@@ -69,6 +70,9 @@ void sequence::remove_current( ){
     }
   }
   void sequence::attach(const value_type& entry){
+    if(used == capacity){
+      resize(used+1);
+      }
     if(is_item() == true){
       used++;
     for(int i = used; i > current_index; --i){
@@ -91,6 +95,9 @@ void sequence::remove_current( ){
 
 
   void sequence::insert(const value_type& entry){
+    if(used == capacity){
+      resize(used+1);
+    }
     if(is_item() == true){
     for(int i = used; i > current_index; --i){
       data[i] = data[i-1];
