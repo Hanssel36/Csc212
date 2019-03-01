@@ -20,7 +20,8 @@
 #include <iostream>     // Provides cout and cin
 #include <cstdlib>      // Provides EXIT_SUCCESS
 #include <cstring>   // Provides memcpy
-#include "sequence2.h"    // Provides the sequence class with double items.
+#include "sequence2.h"
+// Provides the sequence class with double items.
 using namespace std;
 using namespace main_savitch_4;
 
