@@ -16,6 +16,8 @@ namespace main_savitch_4{
     capacity = initial_capacity;
     used = 0;
     }
+
+
   sequence::sequence(const sequence& source){
     data = new value_type[source.capacity];
     current_index = source.current_index;
@@ -23,6 +25,8 @@ namespace main_savitch_4{
     used = source.used;
     copy(source.data,source.data+used,data);
     }
+
+
   sequence::~sequence( ){
   delete [] data;
   }
@@ -86,7 +90,7 @@ void sequence::remove_current( ){
   }
   void sequence::attach(const value_type& entry){
     if(used == capacity){
-      resize(used+1);
+      resize(capacity+(capacity*.1));
       }
     if(is_item() == true){
     for(int i = used; i > current_index; --i){
@@ -109,7 +113,7 @@ void sequence::remove_current( ){
 
   void sequence::insert(const value_type& entry){
     if(used == capacity){
-      resize(used+1);
+      resize(capacity+(capacity*.1));
     }
     if(is_item() == true){
     for(int i = used; i > current_index; --i){
