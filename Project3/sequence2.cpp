@@ -1,6 +1,13 @@
 #include "sequence2.h"
 #include <algorithm>
 using namespace std;
+//Invariant
+/*The number of items in the bag is in the member variable
+used. The actual items of the bag are stored in a partially filled
+array. The array is a dynamic array, pointed to by the
+member variable data.
+The total size of the dynamic array is in the member vari-
+able capacity.*/
 
 namespace main_savitch_4{
   const sequence::size_type sequence::DEFAULT_CAPACITY;
