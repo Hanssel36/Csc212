@@ -2,11 +2,12 @@
 #include <algorithm>
 using namespace std;
 //Invariant
-/*The number of items in the bag is in the member variable
-used. The actual items of the bag are stored in a partially filled
+/*1. The number of items in the sequence is in the member variable
+used.
+2. The actual items of the sequence are stored in a partially filled
 array. The array is a dynamic array, pointed to by the
 member variable data.
-The total size of the dynamic array is in the member vari-
+3. The total size of the dynamic array is in the member vari-
 able capacity.*/
 
 namespace main_savitch_4{
@@ -50,6 +51,25 @@ namespace main_savitch_4{
       capacity = new_capacity;
       }
     }
+     sequence::value_type sequence::operator[](size_type index) const{
+       if(index < used){
+        return data[index];
+       }
+       }
+    void sequence::operator+=(const sequence& sum){
+      if(used + sum.used > capacity){
+        resize(used+ sum.used);
+        }
+        copy(sum.data,sum.data + sum.used, data + used);
+        used += sum.used;
+      }
+    sequence operator+(const sequence& s1, const sequence& s2){
+      sequence total(s1.size()+s2.size());
+      total += s1;
+      total += s2;
+      return total;
+      }
+
     void sequence::operator=(const sequence& source){
       value_type *new_data;
       if(this == &source){

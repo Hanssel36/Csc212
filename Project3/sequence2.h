@@ -110,6 +110,8 @@ namespace main_savitch_4
         void remove_current( );
         void resize(size_type new_capacity);
         void operator=(const sequence& source);
+        void operator+=(const sequence& sum);
+        value_type operator[](size_type index) const;
         // CONSTANT MEMBER FUNCTIONS
         size_type size( ) const;
         bool is_item( ) const;
@@ -120,6 +122,7 @@ namespace main_savitch_4
         size_type capacity;
         size_type current_index;
     };
+    sequence operator+(const sequence& s1, const sequence& s2);
 }
 
 #endif
