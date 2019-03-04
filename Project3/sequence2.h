@@ -29,6 +29,8 @@
 //
 //     sequence(const sequence& source)
       //write the preconditions and postconditions yourself!
+      // Postcondition: The sequence that is being constructed has been initialized
+// with the same items and capacity as source.
 //
 // MODIFICATION MEMBER FUNCTIONS for the sequence class:
 //   void resize(size_type new_capacity)

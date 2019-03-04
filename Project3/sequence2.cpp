@@ -1,14 +1,16 @@
 #include "sequence2.h"
 #include <algorithm>
 using namespace std;
-//Invariant
+//Invariant for the sequence class
 /*1. The number of items in the sequence is in the member variable
 used.
 2. The actual items of the sequence are stored in a partially filled
 array. The array is a dynamic array, pointed to by the
 member variable data.
 3. The total size of the dynamic array is in the member vari-
-able capacity.*/
+able capacity.
+4. If there is a current item, then it lies in data[current_index]; if there is
+no current item, then current_index equals used*/
 
 namespace main_savitch_4{
   const sequence::size_type sequence::DEFAULT_CAPACITY;
