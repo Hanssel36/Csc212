@@ -44,7 +44,7 @@ namespace main_savitch_4{
       return;
       }
     if(new_capacity < used){
-      new_capacity = used;
+      capacity = used;
       }else{
     larger_array = new value_type[new_capacity];
     copy(data,data+used,larger_array);
