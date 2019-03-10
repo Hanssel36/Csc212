@@ -1,5 +1,6 @@
 #include"sequence3.h"
 #include <cassert> 
+#include <iostream>
 #include <cstdlib> 
 #include "node1.h"
 using namespace std;
@@ -8,6 +9,7 @@ namespace main_savitch_5
 {
 	sequence::sequence( ){
 		head_ptr = NULL;
+		tail_ptr = NULL;
 		many_nodes = 0;
 
 	}
@@ -24,21 +26,56 @@ namespace main_savitch_5
  	 }
 
  	 void sequence::start( ){
- 	 	current_index;
+ 	 	current_index = 1;
+
+ 	 }
+
+ 	 void sequence::advance( ){
+ 	 	current_index++;
+ 	 }
+ 	 void sequence::remove_current( ){
 
  	 }
 
  	 void sequence::attach(const value_type& entry){
- 	 	list_head_insert(head_ptr,entry);
+ 	 	if(size() > 0 && is_item() == true){
+ 	 		cursor = head_ptr;
+	for (size_t i = 1; (i < current_index) && (cursor != NULL); i++){
+	    cursor = cursor->link( );
+	}
+ 	 		list_insert(cursor,entry);
+ 	 		++many_nodes;
+
+ 	 	}else if(size() > 0 && is_item() == false){
+
+ 	 	}else{
+ 	 		list_head_insert(head_ptr,entry);
  	 	++many_nodes;
- 	 	current_index = 0;
+ 	 	current_index = 1;
+ 	 	}
+ 	 	
 
  	 }
 
  	 void sequence::insert(const value_type& entry){
- 	 	list_head_insert(head_ptr, entry);
-		++many_nodes;
-		current_index = 0;
+ 	 	if(size() > 0 && is_item() == true){
+ 	 		// Works like attach. Needs to change.
+ 	 		cursor = head_ptr;
+	for (size_t i = 1; (i < current_index) && (cursor != NULL); i++){
+	    cursor = cursor->link( );
+	}
+ 	 		list_insert(cursor,entry);
+ 	 		++many_nodes;
+		}else if(size() > 0 && is_item() == false){
+			list_head_insert(head_ptr, entry);
+			current_index = 1;
+			many_nodes++;
+
+		}else{
+			list_head_insert(head_ptr, entry);
+			++many_nodes;
+			current_index = 1;
+		}
 
  	 }
 
@@ -53,5 +90,27 @@ namespace main_savitch_5
 		list_copy(source.head_ptr, head_ptr, tail_ptr);
 		many_nodes = source.many_nodes;
 	}
+
+	bool sequence::is_item( ) const{
+			if(size() > 0 && current_index <= many_nodes){
+				return true;
+
+			}else{
+				return false;
+			}
+		}
+	sequence::value_type sequence::current( ) const{
+		if(is_item() == true){
+			node *k;
+			k = list_locate(head_ptr, current_index);
+	
+			return k->data();
+
+		}else{
+			return false;
+		}
+
+	}
+	
 
 }

@@ -100,6 +100,7 @@ namespace main_savitch_5
         node *tail_ptr;
         size_type many_nodes;
         size_type current_index;
+        node *cursor;
     };
 }
 
