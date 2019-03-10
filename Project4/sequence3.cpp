@@ -34,7 +34,22 @@ namespace main_savitch_5
  	 	current_index++;
  	 }
  	 void sequence::remove_current( ){
+ 	 	if(is_item() == true){
+ 	 		if(current_index == 1){
+ 	 			list_head_remove(head_ptr);
+ 	 			--many_nodes;
 
+ 	 		}else{
+ 	 		cursor = head_ptr;
+ 	 		for (size_t i = 1; (i < current_index-1) && (cursor != NULL); i++){
+	    cursor = cursor->link( );
+	}
+
+			list_remove(cursor);
+			--many_nodes;
+ 	 	}
+	 	
+ 	 			}
  	 }
 
  	 void sequence::attach(const value_type& entry){
@@ -45,9 +60,16 @@ namespace main_savitch_5
 	}
  	 		list_insert(cursor,entry);
  	 		++many_nodes;
+ 	 		current_index++;
 
  	 	}else if(size() > 0 && is_item() == false){
-
+ 	 		cursor = head_ptr;
+ 	 		for (size_t i = 1; (i < many_nodes ) && (cursor != NULL); i++){
+	    cursor = cursor->link( );
+	}
+ 	 		list_insert(cursor,entry);
+ 	 		++many_nodes;
+ 	 		current_index = many_nodes;
  	 	}else{
  	 		list_head_insert(head_ptr,entry);
  	 	++many_nodes;
@@ -61,7 +83,7 @@ namespace main_savitch_5
  	 	if(size() > 0 && is_item() == true){
  	 		// Works like attach. Needs to change.
  	 		cursor = head_ptr;
-	for (size_t i = 1; (i < current_index) && (cursor != NULL); i++){
+	for (size_t i = 1; (i < current_index ) && (cursor != NULL); i++){
 	    cursor = cursor->link( );
 	}
  	 		list_insert(cursor,entry);
