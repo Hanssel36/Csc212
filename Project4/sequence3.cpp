@@ -82,12 +82,15 @@ namespace main_savitch_5
  	 void sequence::insert(const value_type& entry){
  	 	if(size() > 0 && is_item() == true){
  	 		// Works like attach. Needs to change.
- 	 		cursor = head_ptr;
-	for (size_t i = 1; (i < current_index ) && (cursor != NULL); i++){
+ 	 		node *precursor;
+ 	 		precursor = NULL;
+ 	 	
+ 	 		for (size_t i = 1; (i < current_index-1) && (cursor != NULL); i++){
 	    cursor = cursor->link( );
 	}
  	 		list_insert(cursor,entry);
  	 		++many_nodes;
+ 	 		}
 		}else if(size() > 0 && is_item() == false){
 			list_head_insert(head_ptr, entry);
 			current_index = 1;
