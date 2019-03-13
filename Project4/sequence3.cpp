@@ -7,9 +7,11 @@ using namespace std;
 
 namespace main_savitch_5
 {
+
 	sequence::sequence( ){
 		head_ptr = NULL;
 		tail_ptr = NULL;
+		
 		many_nodes = 0;
 
 	}
@@ -18,6 +20,7 @@ namespace main_savitch_5
 
 	 list_copy(source.head_ptr, head_ptr, tail_ptr);
 		many_nodes = source.many_nodes;
+		current_index = source.current_index;
  }
  	 sequence::~sequence( ){
 
@@ -80,17 +83,30 @@ namespace main_savitch_5
  	 }
 
  	 void sequence::insert(const value_type& entry){
+
  	 	if(size() > 0 && is_item() == true){
+ 	 		
  	 		// Works like attach. Needs to change.
+ 	 		if(current_index == 1){
+ 	 			
+ 	 			list_head_insert(head_ptr,entry);
+ 	 			++many_nodes;
+ 	 		}else{
  	 		node *precursor;
- 	 		precursor = NULL;
- 	 	
- 	 		for (size_t i = 1; (i < current_index-1) && (cursor != NULL); i++){
+ 	 		precursor = head_ptr;
+ 	 		cursor = head_ptr;
+ 	 		for (size_t i = 2; (i < current_index) && (cursor != NULL); i++){
 	    cursor = cursor->link( );
 	}
- 	 		list_insert(cursor,entry);
+
+	for(size_t i = 0; precursor != cursor; i++){
+		precursor = precursor->link();
+
+	}
+ 	 		list_insert(precursor,entry);
  	 		++many_nodes;
- 	 		}
+ 	 	}
+ 	 		
 		}else if(size() > 0 && is_item() == false){
 			list_head_insert(head_ptr, entry);
 			current_index = 1;
@@ -101,8 +117,12 @@ namespace main_savitch_5
 			++many_nodes;
 			current_index = 1;
 		}
+	}
 
- 	 }
+
+ 	 
+ 	
+ 
 
 	size_t sequence::size( ) const{
 
@@ -110,10 +130,14 @@ namespace main_savitch_5
 	}
 
 	void sequence::operator =(const sequence& source){
+		if(this == &source){
+			return;
+		}
 		list_clear(head_ptr);
 		many_nodes = 0;
 		list_copy(source.head_ptr, head_ptr, tail_ptr);
 		many_nodes = source.many_nodes;
+		current_index = source.current_index;
 	}
 
 	bool sequence::is_item( ) const{
