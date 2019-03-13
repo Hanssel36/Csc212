@@ -1,5 +1,5 @@
 # Csc212
-This is my data structures class and in the courseI learned:
+This is my data structures class and in the course I learned:
 
 Pre-condition/Post-condition specifications 
 Time analysis techniques 
