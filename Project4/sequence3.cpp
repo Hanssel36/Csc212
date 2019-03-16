@@ -135,7 +135,8 @@ void sequence::remove_current( ){
       }
 
       void sequence::insert(const value_type& entry){
-
+						//linked list O(1)
+				//Dynamic O(n)
           if(size() > 0 && is_item() == true){
               if(cursor == head_ptr){
                   list_head_insert(head_ptr,entry);
