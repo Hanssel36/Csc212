@@ -26,13 +26,13 @@
 //
 //   void insert(const value_type& entry)
 //     Postcondition: A new copy of entry has been inserted in the sequence before
-//     the current item. If there was no current item, then the new entry has 
+//     the current item. If there was no current item, then the new entry has
 //     been inserted at the front of the sequence. In either case, the newly
 //     inserted item is now the current item of the sequence.
 //
 //   void attach(const value_type& entry)
 //     Postcondition: A new copy of entry has been inserted in the sequence after
-//     the current item. If there was no current item, then the new entry has 
+//     the current item. If there was no current item, then the new entry has
 //     been attached to the end of the sequence. In either case, the newly
 //     inserted item is now the current item of the sequence.
 //
@@ -99,7 +99,7 @@ namespace main_savitch_5
         node *head_ptr;
         node *tail_ptr;
         size_type many_nodes;
-        size_type current_index;
+        node *precursor;
         node *cursor;
     };
 }
