@@ -59,11 +59,15 @@ namespace main_savitch_5
       }
 
       void sequence::start( ){
+      	//linked list O(1)
+			//Dynamic O(1)
           cursor = head_ptr;
           precursor = NULL;
       }
 
       void sequence::advance( ){
+      	//linked list O(1)
+			//Dynamic O(1)
 					if(is_item() == true){
 					if(cursor->link() == NULL){
 					precursor = NULL;
@@ -167,6 +171,8 @@ void sequence::remove_current( ){
 
 
     size_t sequence::size( ) const{
+    	//linked list O(1)
+			//Dynamic O(1)
 
         return many_nodes;
     }
