@@ -17,7 +17,8 @@ namespace main_savitch_5
 {
 
     sequence::sequence( ){
-
+			//linked list O(1)
+				//Dynamic O(1)
         head_ptr = NULL;
         tail_ptr = NULL;
 				cursor = NULL;
@@ -75,6 +76,8 @@ namespace main_savitch_5
 					}
       }
 void sequence::remove_current( ){
+	//linked list O(1)
+			//Dynamic O(n)
           if(is_item() == true){
               if(cursor->link() == NULL && head_ptr == cursor){
                   list_clear(head_ptr);
@@ -169,6 +172,8 @@ void sequence::remove_current( ){
     }
 
     void sequence::operator =(const sequence& source){
+			//linked list O(n)
+				//Dynamic O(n)
         if(this == &source){
             return;
         }
@@ -206,6 +211,8 @@ void sequence::remove_current( ){
     }
 
     bool sequence::is_item( ) const{
+						//linked list O(1)
+				//Dynamic O(1)
             if(size() > 0 && cursor != NULL){
                 return true;
             }else{
@@ -214,6 +221,8 @@ void sequence::remove_current( ){
         }
 
     sequence::value_type sequence::current( ) const{
+			//linked list O(1)
+				//Dynamic O(1)
         if(is_item() == true){
             return cursor->data();
         }else{
