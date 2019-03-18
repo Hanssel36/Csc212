@@ -11,7 +11,7 @@ int main(){
   node<int>* ages = NULL;
   list_head_insert(ages,21);
   node <string> name;
-  name.set_data("Hans");
+  name.set_data("Hanssel Hinojosa");
   node <point> *seat;
   seat = new node <point>;
   (*seat).set_data(point(2,4));

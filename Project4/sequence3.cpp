@@ -53,8 +53,6 @@ namespace main_savitch_5
 
 }
       sequence::~sequence( ){
-
-
           list_clear(head_ptr);
           many_nodes = 0;
       }
@@ -174,6 +172,8 @@ void sequence::remove_current( ){
         if(this == &source){
             return;
         }
+				list_clear(head_ptr);
+				many_nodes = 0;
          if(source.cursor == NULL){
 				 list_copy(source.head_ptr,head_ptr,tail_ptr);
 				 cursor = NULL;
