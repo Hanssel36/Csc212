@@ -28,6 +28,8 @@ namespace main_savitch_5
     }
 
      sequence::sequence(const sequence& source){
+     	//linked list O(n)
+			//Dynamic O(n)
 			 if(source.cursor == NULL){
 				 list_copy(source.head_ptr,head_ptr,tail_ptr);
 				 cursor = NULL;
@@ -54,6 +56,8 @@ namespace main_savitch_5
 
 }
       sequence::~sequence( ){
+      	//linked list O(1)
+			//Dynamic O(1)
           list_clear(head_ptr);
           many_nodes = 0;
       }
@@ -200,9 +204,8 @@ void sequence::remove_current( ){
 					 }else{
 						 list_copy(source.head_ptr,head_ptr,tail_ptr);
 						 size_t p = 1;
-					 node *Ncursor = source.head_ptr;
-					 while(Ncursor != source.precursor){
-						 Ncursor = Ncursor ->link();
+					 
+					 for(node *Ncursor = source.head_ptr;Ncursor != source.precursor;Ncursor = Ncursor ->link()){
 						 p++;
 						 }
 
