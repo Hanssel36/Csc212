@@ -21,8 +21,8 @@ namespace main_savitch_5
 				//Dynamic O(1)
         head_ptr = NULL;
         tail_ptr = NULL;
-				cursor = NULL;
-				precursor = NULL;
+		cursor = NULL;
+		precursor = NULL;
         many_nodes = 0;
 
     }
@@ -43,9 +43,7 @@ namespace main_savitch_5
 					 }else{
 						 list_copy(source.head_ptr,head_ptr,tail_ptr);
 						 size_t p = 1;
-					 node *Ncursor = source.head_ptr;
-					 while(Ncursor != source.precursor){
-						 Ncursor = Ncursor ->link();
+						 for(node *Ncursor = source.head_ptr;Ncursor != source.precursor;Ncursor = Ncursor ->link()){
 						 p++;
 						 }
 						 precursor = list_locate(head_ptr,p);
