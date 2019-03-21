@@ -54,8 +54,8 @@ namespace main_savitch_5
 
 }
       sequence::~sequence( ){
-      	//linked list O(1)
-			//Dynamic O(1)
+      	//linked list O(n)
+			//Dynamic O(n)
           list_clear(head_ptr);
           many_nodes = 0;
       }

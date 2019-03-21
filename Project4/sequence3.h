@@ -1,4 +1,4 @@
-// PROVIDED BY: ________________ (your name and email address)
+// PROVIDED BY: ________________ (Hanssel Hinojosa. hhinojo000@citymail.cuny.edu)
 // FILE: sequence3.h
 // CLASS PROVIDED: sequence (a container class for a sequence of items,
 // where each sequence may have a designated item called the current item)
