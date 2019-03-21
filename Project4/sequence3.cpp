@@ -50,7 +50,7 @@ namespace main_savitch_5
 						 cursor = precursor->link();
 
 					 }
-					 many_nodes = list_length(head_ptr);
+					many_nodes = source.many_nodes;
 
 }
       sequence::~sequence( ){
@@ -98,18 +98,13 @@ void sequence::remove_current( ){
 							cursor = head_ptr;
 							precursor = NULL;
 
-        }else if (cursor->link() == NULL){
-					list_remove(precursor);
-
-					cursor = NULL;
-					precursor = NULL;
-					}else{
+        }else{
 						list_remove(precursor);
 					cursor = precursor->link();
 						}
-						many_nodes = list_length(head_ptr);
+						
           }
-
+          		--many_nodes;
                   }
 
 
@@ -186,18 +181,18 @@ void sequence::remove_current( ){
             return;
         }
 				list_clear(head_ptr);
-				many_nodes = 0;
+				
          if(source.cursor == NULL){
 				 list_copy(source.head_ptr,head_ptr,tail_ptr);
 				 cursor = NULL;
 				 precursor =NULL;
-					 many_nodes = list_length(head_ptr);
+					
 
 				 }else if(source.head_ptr == source.cursor){
 					 list_copy(source.head_ptr,head_ptr,tail_ptr);
 					 cursor = head_ptr;
 					 precursor = NULL;
-					 many_nodes = list_length(head_ptr);
+					
 
 					 }else{
 						 list_copy(source.head_ptr,head_ptr,tail_ptr);
@@ -209,12 +204,12 @@ void sequence::remove_current( ){
 
 						 precursor = list_locate(head_ptr,p);
 						 cursor = precursor->link();
-						 many_nodes = list_length(head_ptr);
+							
 
 
 					 }
 
-
+					 many_nodes = source.many_nodes;
     }
 
     bool sequence::is_item( ) const{
