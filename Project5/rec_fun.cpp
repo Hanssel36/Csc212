@@ -12,8 +12,23 @@ void binary_print(ostream& outs, unsigned int n){
 
 }
 
+void triangle(ostream& outs, unsigned int m, unsigned int n){
+		if(m <= n){
+			for(int i = 0; m< i; i++){
+				outs << "*";
+				triangle(cout, m+1,n);
+			}
+		}else{
+			for(int i = 0; m < i; i++){
+				outs << "*";
+			}
+			triangle(cout,m,n-1);
+		}
+
+}
+
 int main(){
 
-	binary_print(cout,27);
+	triangle(cout,3,5);
 
 }
