@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdio.h> 
 using namespace std;
 void binary_print(ostream& outs, unsigned int n){
 	if(n == 0){
@@ -13,22 +14,27 @@ void binary_print(ostream& outs, unsigned int n){
 }
 
 void triangle(ostream& outs, unsigned int m, unsigned int n){
-		if(m <= n){
-			for(int i = 0; m< i; i++){
-				outs << "*";
-				triangle(cout, m+1,n);
-			}
-		}else{
-			for(int i = 0; m < i; i++){
-				outs << "*";
-			}
-			triangle(cout,m,n-1);
-		}
 
+		if(m <= n){
+			for(int i = 0; i< m; i++){
+				outs << "*";
+				
+			}
+			outs << "\n";
+			triangle(cout, m+1,n);
+		for(int i = 0; i < m; i++){
+				outs << "*";
+			}
+			outs << "\n";
+		}
+}
+double pow(double x, int n){
+
+	
 }
 
 int main(){
 
-	triangle(cout,3,5);
+	
 
 }
