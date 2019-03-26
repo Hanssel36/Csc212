@@ -39,16 +39,24 @@ double pow(double x, int n){
 	else if (n == 0){
 		return 1;
 	}
-	else if (n > 0){
-		return x*(pow(x, n));
+	else if (n > 0 &&(n%2 == 0)){
+		return pow(x,n/2)*(pow(x, n/2));
 	}
-	else{ 
-		return 1/pow(x, -n);
+	else if(n > 0 &&(n%2 == 1)){ 
+		return x*pow(x,n/2)*pow(x,n/2);
+	}else{
+		return 1/pow(x,-n);
 	}
 }
 
+ void indented_sentences(size_t m, size_t n){
+ 	if(m <= n){
+			
+		}
+
+ }
 int main(){
 
-	cout << pow(3,4) << endl;
+	cout << indented_sentences(cout,3,4) << endl;
 
 }
