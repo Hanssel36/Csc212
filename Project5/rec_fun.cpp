@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdio.h> 
+#include<string>
 #include <assert.h>
 using namespace std;
 void binary_print(ostream& outs, unsigned int n){
@@ -50,13 +51,35 @@ double pow(double x, int n){
 }
 
  void indented_sentences(size_t m, size_t n){
- 	if(m <= n){
-			
-		}
-
+ 	
+ 	
+ 	if(n+1 == m){
+ 		
+ 		
+ 		// cout <<  "This was written by calling number " << m << endl;
+ 		// 
+ 		// cout <<  "This was ALSO written by calling number " << m << endl;
+ 		return;
+ 	}else{
+ 		
+ 		for(int i = 1; i < m%(n+1); i++){
+ 		 	cout << " ";
+ 		} 	
+ 	
+ 		cout <<  "This was written by calling number " << m << endl;
+ 		indented_sentences(m+1,n);
+ 		
+ 		
+ 		 
+ 		 for(int i = 1; i < m%(n+1); i++){
+ 			cout << " ";
+ 		}
+ 		cout <<  "This was ALSO written by calling number " << m << endl;
+ 	}
  }
+
 int main(){
 
-	cout << indented_sentences(cout,3,4) << endl;
+	indented_sentences(3,4);
 
 }
