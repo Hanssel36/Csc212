@@ -131,16 +131,19 @@ namespace main_savitch_10
 	    if (root_ptr == NULL)
 	    {   // Empty tree
 	        /* STUDENT WORK */
+	        return 0;
 	    }
 
 	    if (target < root_ptr->data( ))
 	    {   // Continue looking in the left subtree
 	        /* STUDENT WORK */
+	        bst_remove_all(root_ptr->left(),target);
 	    }
 
 	    if (target > root_ptr->data( ))
 	    {   // Continue looking in the right subtree
 	        /* STUDENT WORK */
+	        bst_remove_all(root_ptr->right(),target);
 	    }
 	    
 	    if (root_ptr->left( ) == NULL)
@@ -160,7 +163,8 @@ namespace main_savitch_10
 	    // the maximum element that we moved up from our left subtree
 	    // might also be a copy of the target).
 	    /* STUDENT WORK */
-
+	    bst_remove_max(root_ptr->left( ), root_ptr->data( ));
+	    bst_remove_all(root_ptr,root_ptr->data());
 	}
 
     template <class Item>
