@@ -53,12 +53,19 @@ double pow(double x, int n){
  void indented_sentences(size_t m, size_t n){
  	
  	
- 	if(n+1 == m){
+ 	if(n == m){
  		
  		
- 		// cout <<  "This was written by calling number " << m << endl;
- 		// 
- 		// cout <<  "This was ALSO written by calling number " << m << endl;
+ 		for(int i = 1; i < n; i++){
+ 			cout << " ";
+ 		}
+ 			cout <<  "This was written by calling number " << m << endl;
+ 		
+ 		for(int i = 1; i < n; i++){
+ 			cout << " ";
+ 		}
+ 		cout <<  "This was ALSO written by calling number " << m << endl;
+ 	
  		return;
  	}else{
  		
@@ -78,8 +85,4 @@ double pow(double x, int n){
  	}
  }
 
-int main(){
 
-	indented_sentences(3,4);
-
-}
