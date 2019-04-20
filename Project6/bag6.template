@@ -26,6 +26,7 @@ namespace main_savitch_10
 	// binary search tree. The reference parameter, removed, has been set 
 	// to a copy of the removed item.
 	{
+		binary_tree_node<Item> *olroot_ptr;
 	    /***STUDENT WORK***
 	     ** This recursive function should be implemented by the student, as
 	     ** discussed on page 507 of the second edition of the textbook.
@@ -46,9 +47,11 @@ namespace main_savitch_10
 	     */
 	binary_tree_node<Item> *oldroot_ptr;
 	if(root_ptr->right() == NULL){
+		olroot_ptr = root_ptr;
 		removed = root_ptr->data();
 		root_ptr = root_ptr->left();
-		bst_remove(root_ptr,removed);
+		delete olroot_ptr;
+	
 
 	}else{
 		bst_remove_max(root_ptr->right(),removed);
@@ -137,13 +140,13 @@ namespace main_savitch_10
 	    if (target < root_ptr->data( ))
 	    {   // Continue looking in the left subtree
 	        /* STUDENT WORK */
-	        bst_remove_all(root_ptr->left(),target);
+	        return bst_remove_all(root_ptr->left(),target);
 	    }
 
 	    if (target > root_ptr->data( ))
 	    {   // Continue looking in the right subtree
 	        /* STUDENT WORK */
-	        bst_remove_all(root_ptr->right(),target);
+	       return bst_remove_all(root_ptr->right(),target);
 	    }
 	    
 	    if (root_ptr->left( ) == NULL)
@@ -164,7 +167,7 @@ namespace main_savitch_10
 	    // might also be a copy of the target).
 	    /* STUDENT WORK */
 	    bst_remove_max(root_ptr->left( ), root_ptr->data( ));
-	    bst_remove_all(root_ptr,root_ptr->data());
+	  return  bst_remove_all(root_ptr,target);
 	}
 
     template <class Item>
