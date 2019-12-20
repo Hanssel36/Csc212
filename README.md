@@ -12,5 +12,4 @@ Queues
 Recursive thinking 
 Trees 
 Sorting and searching techniques
- Graphs
-
+Graphs
